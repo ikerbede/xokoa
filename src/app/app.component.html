@@ -1,0 +1,19 @@
+<div class="global-container">
+  <div class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let tab of tabs" [ngClass]="{'active-tab': rla.isActive}"
+        [routerLink]="tab.path" routerLinkActive #rla="routerLinkActive">
+        <mat-icon matListIcon [svgIcon]="tab.icon"></mat-icon>
+        <h3 matLine>{{ tab.label }}</h3>
+      </a>
+    </mat-nav-list>
+  </div>
+  <div class="main-container">
+    <mat-toolbar color="primary">
+      <h1>{{ activity | async }}</h1>
+    </mat-toolbar>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

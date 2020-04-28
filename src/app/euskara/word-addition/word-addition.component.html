@@ -1,0 +1,36 @@
+<form class="hitz-berri-form" (ngSubmit)="next()">
+  <mat-form-field>
+    <mat-label>hitz berria</mat-label>
+    <input id="hitz-name" name="hitz-name" matInput [(ngModel)]="word.name" required />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-chip-list #tchips>
+      <mat-chip color="accent" selected *ngFor="let t of word.translations" 
+        [removable]="true" (removed)="remove(t, 't')">
+        {{ t }}
+        <mat-icon matChipRemove svgIcon="cancel"></mat-icon>
+      </mat-chip>
+      <input placeholder="itzulpenak"
+             [matChipInputFor]="tchips"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="true"
+             (matChipInputTokenEnd)="add($event, 't')">
+    </mat-chip-list>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-chip-list #kchips>
+      <mat-chip color="accent" selected *ngFor="let k of word.keywords" 
+        [removable]="true" (removed)="remove(k, 'k')">
+        {{ k }}
+        <mat-icon matChipRemove svgIcon="cancel"></mat-icon>
+      </mat-chip>
+      <input placeholder="giltza hitzak"
+             [matChipInputFor]="kchips"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="true"
+             (matChipInputTokenEnd)="add($event, 'k')">
+    </mat-chip-list>
+  </mat-form-field>
+  <button type="submit" mat-button>Beste hitz bat</button>
+  <button mat-button (click)="ok()">Ok</button>
+</form>

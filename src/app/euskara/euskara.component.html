@@ -1,0 +1,64 @@
+<!-- Word search -->
+<form class="word-search">
+  <mat-form-field color="accent" appearance="standard" class="search-input">
+    <mat-label>atseman</mat-label>
+    <input matInput id="searchInput" name="searchInput" 
+      [(ngModel)]="search.input" (change)="onSearchChanges()" />
+  </mat-form-field>
+
+  <mat-form-field color="accent" appearance="standard" class="search-keywords">
+    <mat-label>giltza hitzak</mat-label>
+    <mat-select id="searchKeywords" name="searchKeywords" [formControl]="keywordsFC" multiple>
+      <mat-option *ngFor="let k of keywords | async" [value]="k">{{ k }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<!-- Word list -->
+<mat-card class="word-list-card">
+  <table style="width: 100%;">
+    <tr *ngFor="let w of words" matRipple [matRippleCentered]="true" (click)="selectWord(w)">
+      <td>{{ w.name }}</td>
+      <td>
+        <ul class="word-translations">
+          <li *ngFor="let t of w.translations; let l = last">
+            <span>{{ t }}</span>
+            <span *ngIf="!l">,&nbsp;</span>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <mat-chip-list>
+          <mat-chip color="primary" selected *ngFor="let k of w.keywords">{{ k }}</mat-chip>
+        </mat-chip-list>
+      </td>
+      <td>
+        <mat-icon svgIcon="check_box_outline_blank" *ngIf="!w.selected"></mat-icon>
+        <mat-icon svgIcon="check_box" *ngIf="w.selected"></mat-icon>
+      </td>
+    </tr>
+  </table>
+  <!--
+  <mat-selection-list>
+    <mat-list-option *ngFor="let w of words">
+      <div class="word-item">
+        <p>{{ w.name }}</p>
+        <ul class="word-translations">
+          <li *ngFor="let t of w.translations; let l = last">
+            <span>{{ t }}</span>
+            <span *ngIf="!l">,&nbsp;</span>
+          </li>
+        </ul>
+        <mat-chip-list>
+          <mat-chip color="primary" selected *ngFor="let k of w.keywords">{{ k }}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
+  -->
+</mat-card>
+
+<!-- Word addition -->
+<button mat-fab color="accent" class="add-button" (click)="addWord()">
+  <mat-icon svgIcon="add"></mat-icon>
+</button>

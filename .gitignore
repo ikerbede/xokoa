@@ -1,0 +1,9 @@
+src/assets
+e2e
+browserslist
+*.js
+tsconfig.app.json
+tsconfig.spec.json
+tslint.json
+src/test.ts
+src/polyfills.ts
