@@ -62,6 +62,9 @@ export class AppIconsService {
       'phone',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/phone.svg'));
     iconRegistry.addSvgIcon(
+      'search',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
+    iconRegistry.addSvgIcon(
       'school',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/school.svg'));
     iconRegistry.addSvgIcon(

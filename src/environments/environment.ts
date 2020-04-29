@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:3000'
+  EUSKARA_API_URL: 'http://localhost:3000',
+  CODENAMES_API_URL: 'http://localhost:3001'
 };
 
 /*

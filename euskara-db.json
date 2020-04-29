@@ -1,0 +1,29 @@
+{
+  "words": [
+    {
+      "id": 1,
+      "name": "egun",
+      "translations": [
+        "jour",
+        "aujourd'hui"
+      ],
+      "keywords": [
+        "temps",
+        "temporalité"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "on",
+      "translations": [
+        "bon"
+      ],
+      "keywords": []
+    }
+  ],
+  "keywords": [
+    "temps",
+    "temporalité",
+    "météo"
+  ]
+}

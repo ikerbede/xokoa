@@ -14,3 +14,14 @@ body {
 .h100 {
   height: 100%;
 }
+
+.xoko-fab-btn {
+  position: absolute !important;
+  bottom: 40px;
+  right: 80px;
+}
+
+.goal-dialog .mat-dialog-container {
+  background-color: mat-color($accent);
+  padding: 15px;
+}

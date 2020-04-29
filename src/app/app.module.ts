@@ -22,6 +22,10 @@ import { GoalComponent } from './code-names/goal/goal.component';
     GridComponent,
     GoalComponent
   ],
+  entryComponents: [
+    WordAdditionComponent,
+    GoalComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

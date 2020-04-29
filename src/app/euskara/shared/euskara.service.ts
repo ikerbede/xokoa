@@ -19,7 +19,7 @@ export class EuskaraService {
   // Get keywords
   private initKeywordsIfNeeded(force = false) {
     if (force || !this.keywords$) {
-      this.keywords$ = this.http.get<string[]>(`${environment.API_URL}/keywords`)
+    this.keywords$ = this.http.get<string[]>(`${environment.EUSKARA_API_URL}/keywords`)
         .pipe(shareReplay(1));
     }
   }
@@ -32,7 +32,7 @@ export class EuskaraService {
   // Get initial word list
   private initWordsIfNeeded(force = false) {
     if (force || !this.initialWords) {
-      this.http.get<Word[]>(`${environment.API_URL}/words`)
+      this.http.get<Word[]>(`${environment.EUSKARA_API_URL}/words`)
         .pipe(shareReplay(1))
         .subscribe(words => {
           this.initialWords = words;
@@ -74,9 +74,9 @@ export class EuskaraService {
     // FIXME: Backend task
     this.keywords$.subscribe(keywords => word.keywords
       .filter(k => keywords.indexOf(k) === -1)
-      .forEach(newK => this.http.post<void>(`${environment.API_URL}/keywords`, newK)));
+      .forEach(newK => this.http.post<void>(`${environment.EUSKARA_API_URL}/keywords`, newK)));
 
-    return this.http.post<Word>(`${environment.API_URL}/words`, word)
+    return this.http.post<Word>(`${environment.EUSKARA_API_URL}/words`, word)
       .pipe(tap(word => {
         this.initialWords.push(word);
         this.wordsSource.next([...this.initialWords]);

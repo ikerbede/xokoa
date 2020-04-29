@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModalComponent } from './carousel-modal/carousel-modal.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MaterialModule } from './material.module';
+import { ShufflePipe } from './shuffle.pipe';
 
 
 @NgModule({
   declarations: [
     CarouselComponent,
-    CarouselModalComponent
+    CarouselModalComponent,
+    ShufflePipe
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,9 @@ import { MaterialModule } from './material.module';
   ],
   entryComponents: [
     CarouselModalComponent
+  ],
+  providers: [
+    ShufflePipe
   ]
 })
 export class SharedModule { }

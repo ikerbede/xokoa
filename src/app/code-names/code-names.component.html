@@ -1,1 +1,8 @@
-<app-goal [starter]="'red'"></app-goal>
+<mat-card class="game-panel">
+  <app-grid [words]="words"></app-grid>
+</mat-card>
+
+<!-- Show goal -->
+<button mat-fab color="accent" class="xoko-fab-btn" (click)="showGoal()">
+  <mat-icon svgIcon="search"></mat-icon>
+</button>

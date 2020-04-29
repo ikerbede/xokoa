@@ -1,7 +1,5 @@
-<mat-card class="goal-card">
-  <table class="goal-table">
-    <tr *ngFor="let l of lines">
-      <td *ngFor="let c of l.cells" [style.backgroundColor]="c.color"></td>
-    </tr>
-  </table>
-</mat-card>
+<table class="goal-table">
+  <tr *ngFor="let l of lines">
+    <td *ngFor="let c of l.cells" [style.backgroundColor]="c.color"></td>
+  </tr>
+</table>

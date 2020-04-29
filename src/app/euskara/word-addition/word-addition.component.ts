@@ -15,7 +15,7 @@ export class WordAdditionComponent implements OnInit {
   word: Word = {name: '', translations: [], keywords: []};
 
   constructor(
-    public dialogRef: MatDialogRef<WordAdditionComponent>,
+    private dialogRef: MatDialogRef<WordAdditionComponent>,
     private euskaraService: EuskaraService
   ) { }
 
