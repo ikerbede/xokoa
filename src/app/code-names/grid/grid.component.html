@@ -1,5 +1,5 @@
 <mat-grid-list cols="5" rowHeight="100px">
-  <mat-grid-tile *ngFor="let w of words">
-    <mat-card>{{ w }}</mat-card>
+  <mat-grid-tile *ngFor="let cn of codeNames | async">
+    <mat-card>{{ cn.word }}</mat-card>
   </mat-grid-tile>
 </mat-grid-list>

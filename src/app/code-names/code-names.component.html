@@ -1,6 +1,21 @@
-<mat-card class="game-panel">
-  <app-grid [words]="words"></app-grid>
-</mat-card>
+<mat-toolbar color="primary" id="cn-toolbar">
+  <h1>Code Names</h1>
+
+  <!-- Set new game -->
+  <form class="new-game-form" (submit)="setNewGame()">
+    <div class="cn-slide-toggle">
+      Rouge<mat-slide-toggle (change)="isRedFirst = !isRedFirst">Bleu</mat-slide-toggle>
+    </div>
+    <button type="submit" mat-raised-button color="accent">Nouvelle partie</button> 
+  </form>
+</mat-toolbar>
+
+<!-- Game grid -->
+<div class="game-panel">
+  <mat-card>
+    <app-grid [codeNames]="codeNames$"></app-grid>
+  </mat-card>
+</div>
 
 <!-- Show goal -->
 <button mat-fab color="accent" class="xoko-fab-btn" (click)="showGoal()">

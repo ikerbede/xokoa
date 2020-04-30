@@ -1,5 +1,4 @@
-<table class="goal-table">
-  <tr *ngFor="let l of lines">
-    <td *ngFor="let c of l.cells" [style.backgroundColor]="c.color"></td>
-  </tr>
-</table>
+<mat-grid-list cols="5" rowHeight="50px">
+  <mat-grid-tile *ngFor="let cn of data.codeNames | async"
+    [style.backgroundColor]="cn.color"></mat-grid-tile>
+</mat-grid-list>

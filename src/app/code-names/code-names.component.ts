@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs/internal/Observable';
 import { GoalComponent } from './goal/goal.component';
+import { CodeName } from './shared/code-name';
 import { CodeNamesService } from './shared/code-names.service';
 
 @Component({
@@ -9,8 +11,8 @@ import { CodeNamesService } from './shared/code-names.service';
   styleUrls: ['./code-names.component.scss']
 })
 export class CodeNamesComponent implements OnInit {
-  starter = 'red';
-  words: string[];
+  isRedFirst = true;
+  codeNames$: Observable<CodeName[]>;
 
   constructor(
     private dialog: MatDialog,
@@ -18,13 +20,17 @@ export class CodeNamesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cnService.getWords().subscribe(words => this.words = words);
+    this.codeNames$ = this.cnService.getCodeNames(this.isRedFirst);
+  }
+
+  setNewGame() {
+    this.codeNames$ = this.cnService.getCodeNames(this.isRedFirst, true);
   }
 
   showGoal() {
     const dialogRef = this.dialog.open(GoalComponent, {
-      width: '230px', 
-      data: {starter: this.starter},
+      width: '270px', 
+      data: {codeNames: this.codeNames$},
       panelClass: 'goal-dialog'
     });
   }

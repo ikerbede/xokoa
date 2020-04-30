@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs/internal/Observable';
-import { filter } from 'rxjs/internal/operators/filter';
-import { map } from 'rxjs/internal/operators/map';
+import { Router } from '@angular/router';
 import { AppIconsService } from './app-icons.service';
 
 @Component({
@@ -15,7 +12,6 @@ export class AppComponent implements OnInit {
     {label: 'Euskara', path: 'euskara', icon: 'school'},
     {label: 'Code names', path: 'code-names', icon: 'casino'}
   ];
-  activity: Observable<string>;
 
   constructor(
     private router: Router,
@@ -23,9 +19,5 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activity = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map((event: NavigationEnd) => this.tabs.find(tab => tab.path === event.url.split('/')[1]).label)
-    ); 
   }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { CodeName } from '../shared/code-name';
 
 @Component({
   selector: 'app-grid',
@@ -6,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements OnInit {
-  @Input() words: string[] = [];
+  @Input() codeNames: Observable<CodeName[]>;
 
   constructor() { }
 
