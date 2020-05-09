@@ -12,7 +12,7 @@ import { CodeNamesService } from './shared/code-names.service';
 })
 export class CodeNamesComponent implements OnInit {
   isRedFirst = true;
-  codeNames$: Observable<CodeName[]>;
+  codeNames: CodeName[];
 
   constructor(
     private dialog: MatDialog,
@@ -20,17 +20,19 @@ export class CodeNamesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.codeNames$ = this.cnService.getCodeNames(this.isRedFirst);
+    this.cnService.getCodeNames(this.isRedFirst)
+      .subscribe(cn => this.codeNames = cn)
   }
 
   setNewGame() {
-    this.codeNames$ = this.cnService.getCodeNames(this.isRedFirst, true);
+    this.cnService.getCodeNames(this.isRedFirst, true)
+      .subscribe(cn => this.codeNames = cn);
   }
 
   showGoal() {
     const dialogRef = this.dialog.open(GoalComponent, {
       width: '270px', 
-      data: {codeNames: this.codeNames$},
+      data: {codeNames: this.codeNames},
       panelClass: 'goal-dialog'
     });
   }

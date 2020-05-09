@@ -1,4 +1,4 @@
 <mat-grid-list cols="5" rowHeight="50px">
-  <mat-grid-tile *ngFor="let cn of data.codeNames | async"
+  <mat-grid-tile *ngFor="let cn of data.codeNames"
     [style.backgroundColor]="cn.color"></mat-grid-tile>
 </mat-grid-list>

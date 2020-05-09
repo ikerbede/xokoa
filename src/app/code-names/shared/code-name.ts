@@ -7,4 +7,5 @@ export interface CodeName {
   index: number; 
   word: string;
   color: string;
+  selected?: boolean;
 }

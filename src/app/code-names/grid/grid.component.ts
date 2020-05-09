@@ -8,7 +8,7 @@ import { CodeName } from '../shared/code-name';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements OnInit {
-  @Input() codeNames: Observable<CodeName[]>;
+  @Input() codeNames: CodeName[];
 
   constructor() { }
 

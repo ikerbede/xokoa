@@ -12,7 +12,7 @@ export class GoalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<GoalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {codeNames: Observable<CodeName[]>}
+    @Inject(MAT_DIALOG_DATA) public data: {codeNames: CodeName[]}
   ) { }
 
   ngOnInit(): void {
